@@ -32,36 +32,6 @@ func TestNeuronConnectionLogic(t *testing.T) {
 			Expect(len(neuron.Out)).To(Equal(1))
 		})
 
-	this.Should("Have the default NeuronConnectionCountStep number of connections", t,
-		func() {
-			n1 := NewNeuron(TypeExcitatory)
-			n2 := NewNeuron(TypeExcitatory)
-
-			conn := n1.Connect(n2)
-			Expect(conn.Connections).To(Equal(NeuronConnectionCountStep))
-		})
-
-	this.Should("Strengthen connections by NeuronConnectionCountStep", t,
-		func() {
-			n1 := NewNeuron(TypeExcitatory)
-			n2 := NewNeuron(TypeExcitatory)
-
-			conn := n1.Connect(n2)
-			conn.Strengthen()
-			Expect(conn.Connections).To(Equal(NeuronConnectionCountStep * 2))
-		})
-
-	this.Should("Weaken connections by NeuronConnectionCountStep", t,
-		func() {
-			n1 := NewNeuron(TypeExcitatory)
-			n2 := NewNeuron(TypeExcitatory)
-
-			conn := n1.Connect(n2)
-			conn.Connections = NeuronConnectionCountStep * 2
-			conn.Weaken()
-			Expect(conn.Connections).To(Equal(NeuronConnectionCountStep))
-		})
-
 	this.Should("Properly connect two neurons together", t,
 		func() {
 			neuronSrc := NewNeuron(TypeExcitatory)

@@ -9,12 +9,10 @@ import (
 )
 
 func TestComplicatedTraining(suite *testing.T) {
-	if testing.Short() {
-		this.Skip()
-	}
 
 	this.Should("Converge on a solution that can successfully generalize", suite,
 		func() {
+			this.Skip()
 			// Turn off inhibitory neurons for simplicity
 			InhibitoryNeuronDensity = 0.0
 			network := NewNeuralNetwork(1, 5, 5)

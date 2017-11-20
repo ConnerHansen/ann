@@ -12,6 +12,7 @@ const (
 
 // Neuron the basic building block of the neural network structure
 type Neuron struct {
+	Bias      float64             `json:"bias"`
 	FiredAt   time.Time           `json:"fired_at"`
 	In        []*NeuronConnection `json:"incoming"`
 	Out       []*NeuronConnection `json:"outgoing"`
@@ -22,6 +23,7 @@ type Neuron struct {
 // NewNeuron returns a new base neuron with no connections
 func NewNeuron(nType int) *Neuron {
 	return &Neuron{
+		Bias: 1.0,
 		In:   make([]*NeuronConnection, 0),
 		Out:  make([]*NeuronConnection, 0),
 		Type: nType,
@@ -120,4 +122,10 @@ func (n *Neuron) TotalOutputWeight() float64 {
 	}
 
 	return total
+}
+
+// Output returns the calculated weight of the neuron which is the potential
+// plus the bias
+func (n *Neuron) Output() float64 {
+	return n.Bias + n.Potential
 }

@@ -89,7 +89,6 @@ func (n *NeuralNetwork) Clone() NetworkConfiguration {
 				cloneSrc := cloneMap[conn.Source]
 
 				cloneConn := cloneSrc.Connect(cloneNeuron)
-				cloneConn.Connections = conn.Connections
 				cloneConn.Weight = conn.Weight
 			}
 		})

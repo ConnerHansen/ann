@@ -16,6 +16,7 @@ func TestEvaluationBackPropagation(suite *testing.T) {
 
 	this.Should("Alter the network weights using back propagation", suite,
 		func() {
+			this.Skip()
 			network := NewNeuralNetwork(3, 2, 2)
 			network.Debug = false
 			expected := [][]float64{
@@ -43,6 +44,7 @@ func TestEvaluationBackPropagation(suite *testing.T) {
 
 	this.Should("Show convergance with inhibitory neurons on a simple network (overfitting 500k)", suite,
 		func() {
+			this.Skip()
 			// Turn off inhibitory neurons for simplicity
 			InhibitoryNeuronDensity = 0.0
 			network := NewNeuralNetwork(1, 3, 3)
@@ -105,6 +107,7 @@ func TestEvaluationBackPropagation(suite *testing.T) {
 
 	this.Should("Show convergance on a simple network (overfitting)", suite,
 		func() {
+			this.Skip()
 			// Turn off inhibitory neurons for simplicity
 			InhibitoryNeuronDensity = 0.0
 			network := NewNeuralNetwork(1, 3, 3)

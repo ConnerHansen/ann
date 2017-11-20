@@ -2,6 +2,16 @@ package main
 
 import "math"
 
+// linearError calculates the linear error between two float values
+func linearError(expected, actual float64) float64 {
+	return expected - actual
+}
+
+// meanSquaredError calculates the mean squared error between two float values
+func meanSquaredError(expected, actual float64) float64 {
+	return 0.5 * math.Pow(expected-actual, 2)
+}
+
 // round takes the input float and rounds it to the specified number of digits
 // of precision
 func round(src float64, digits int) float64 {
